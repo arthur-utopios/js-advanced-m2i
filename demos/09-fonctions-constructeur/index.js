@@ -37,6 +37,27 @@ let radiateur = {
     }
 }
 
-
-
 console.log(+radiateur);
+
+function Instrument(nom, type) {
+  this.nom = nom;
+  this.type = type;
+}
+
+Instrument.prototype.jouer = function() {
+  console.log('Jouer');
+}
+
+function Guitare(nom, type, texture) {
+  Instrument.call(this, nom, type);
+  this.texture = texture;
+}
+
+Guitare.prototype = Object.create(Instrument.prototype);
+
+let maGuitareFender = new Guitare('Fender Strato400', 'Instrument à cordes', 'Lisse');
+
+new Instrument('toto', 'tata').jouer();
+
+console.log(maGuitareFender.nom);
+maGuitareFender.jouer();
