@@ -26,16 +26,16 @@ let monProduit = new Product(1, "chaise", 30, 100);
 console.log(monProduit.stockPrice());
 
 let radiateur = {
-    id: 1,
-    marque: "Danfoss",
-    chaleurMax: 120,
-    toString() {
-        return Object.entries(this).join(',');
-    },
-    valueOf() {
-        return 3;
-    }
-}
+  id: 1,
+  marque: "Danfoss",
+  chaleurMax: 120,
+  toString() {
+    return Object.entries(this).join(",");
+  },
+  valueOf() {
+    return 3;
+  },
+};
 
 console.log(+radiateur);
 
@@ -44,9 +44,9 @@ function Instrument(nom, type) {
   this.type = type;
 }
 
-Instrument.prototype.jouer = function() {
-  console.log('Jouer');
-}
+Instrument.prototype.jouer = function () {
+  console.log("Jouer");
+};
 
 function Guitare(nom, type, texture) {
   Instrument.call(this, nom, type);
@@ -55,9 +55,13 @@ function Guitare(nom, type, texture) {
 
 Guitare.prototype = Object.create(Instrument.prototype);
 
-let maGuitareFender = new Guitare('Fender Strato400', 'Instrument à cordes', 'Lisse');
+let maGuitareFender = new Guitare(
+  "Fender Strato400",
+  "Instrument à cordes",
+  "Lisse"
+);
 
-new Instrument('toto', 'tata').jouer();
+new Instrument("toto", "tata").jouer();
 
 console.log(maGuitareFender.nom);
 maGuitareFender.jouer();
